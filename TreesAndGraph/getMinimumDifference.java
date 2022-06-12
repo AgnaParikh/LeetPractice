@@ -14,6 +14,12 @@
  * }
  */
 class getMinimumDifference {
+
+    /**
+     * It is understood that minimum difference will be from two nearest elements so nearest element will be found from inorder traversal. So start inorder
+     *  traversal and when processing current node subtract previous inorder value from node and
+     *  store its answer.
+     */
     
     //APPROACH 1: Use the inorder traversal (left - root - right) 
     // Store traversal in an arraylist - is sorted
