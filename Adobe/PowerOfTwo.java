@@ -25,11 +25,10 @@ class PowerOfTwo {
     
     //Using log
     // O(1)
-    /**public boolean isPowerOfTwo(int n){
-        
-        Math.round(x,10);
-        
-        return (x==(int)x);
-    }**/
-    
+    /** 
+    class Solution {
+        public boolean isPowerOfThree(int n) {
+            return (Math.log10(n) / Math.log10(3)) % 1 == 0;
+        }
+    **/
 }
