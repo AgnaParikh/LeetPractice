@@ -10,6 +10,14 @@
 public class GuessNumberBS extends GuessGame {
     
     int guess;
+
+    //Use ternary search
+    /**
+            int mid1 = low + (high - low) / 3;
+            int mid2 = high - (high - low) / 3;
+            int res1 = guess(mid1);
+            int res2 = guess(mid2);
+    **/
     
    /**public int guessNumber(int n) {
         int low = 1;
