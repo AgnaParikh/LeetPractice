@@ -1,0 +1,7 @@
+1. Single number #136
+Approch 1: Use HashSet, add a number if not contained and delete if that occurs for the second time. Element left in the hashset is the single element. But it uses O(n) space complexity. SO FAIL..!
+Approach 2: Use Bit Manipulation
+https://www.youtube.com/watch?v=qMPX1AOa83k&ab_channel=NeetCode
+XOR all the numbers together. The result will be the single number. XOR same number gives 0 and so all numbers that occur twice cancels out and element left is single occurance number. 
+XOR Rules: 0 ^ 0 = 0 and 1 ^ 0 = 1
+
