@@ -1,6 +1,6 @@
 Important tips
 
-1. Longest Palindrome
+1. Longest Palindrome #409
 -> for characters always think about using character array of size [128]
         int[] count = new int[128];
         for (char c: s.toCharArray())
