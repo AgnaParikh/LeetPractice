@@ -6,8 +6,7 @@ public class CombinationSum {
         public List<List<Integer>> combinationSum(int[] candidates, int target) {
             
             ans=new ArrayList<List<Integer>>();
-            combinationSum(candidates,new ArrayList<Integer>(),0,0,target);
-            
+            combinationSum(candidates,new ArrayList<Integer>(),0,0,target);           
             return ans;        
             
         }
