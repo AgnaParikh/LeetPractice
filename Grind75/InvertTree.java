@@ -34,6 +34,5 @@ public class InvertTree {
         invertTree(root.right);
         
         return root;
-    }
-    
+    }   
 }
