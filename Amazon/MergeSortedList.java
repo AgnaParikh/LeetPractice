@@ -42,6 +42,4 @@ class MergeSortedList {
        return dummy.next;
                
    }
-} Main {
-    
-}
+} 
