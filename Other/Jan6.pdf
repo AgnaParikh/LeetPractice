@@ -1,0 +1,174 @@
+//2352. Equal Row and Column Pairs
+class Solution {
+    public int equalPairs(int[][] grid) {
+        
+        HashMap<String,Integer> rows = new HashMap<>();
+        StringBuilder str = new StringBuilder();
+        int ans = 0;
+
+        for(int i=0; i < grid.length; i++)
+        {
+            for(int j=0; j < grid[0].length; j++)
+            {
+                str.append(grid[i][j]);
+                str.append(',');
+            }
+
+            rows.put(str.toString(),rows.getOrDefault(str.toString(),0)+1);
+            str = new StringBuilder();
+        }
+
+        System.out.println(rows);
+
+        for(int i=0; i < grid.length; i++)
+        {
+            for(int j=0; j < grid[0].length; j++)
+            {
+                str.append(grid[j][i]);
+                str.append(',');
+            }
+            System.out.println(str.toString());
+
+            if(rows.containsKey(str.toString()))
+            {
+                ans= ans + rows.get(str.toString());
+            }
+            str = new StringBuilder();
+        }
+
+        return ans;
+    }
+}
+
+//1657. Determine if Two Strings Are Close
+class Solution {
+    public boolean closeStrings(String word1, String word2) {
+
+        //Intuition - To check if all characters are present 
+        // frequencies sorted set values should match
+
+        int freq1[]=new int [26];
+        int freq2[]=new int [26];
+        for(int i=0;i<word1.length();i++){
+            freq1[word1.charAt(i)-'a']++;
+        }
+        for(int i=0;i<word2.length();i++){
+            freq2[word2.charAt(i)-'a']++;
+        }
+        for(int i=0;i<26;i++){
+            if((freq1[i]==0&&freq2[i]!=0)||(freq1[i]!=0&&freq2[i]==0))return false;
+        }
+        Arrays.sort(freq1);Arrays.sort(freq2);
+        for(int i=0;i<26;i++){
+            if(freq1[i]!=freq2[i])return false;
+        }
+        return true;
+    }
+}
+
+//1207. Unique Number of Occurrences
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+
+        HashMap<Integer,Integer> count = new HashMap<>();
+        for(Integer i : arr)
+        {
+            count.put(i, count.getOrDefault(i,0)+1);
+        }
+        
+        HashSet<Integer> unique = new HashSet<>();
+        for(Integer i : count.keySet())
+        {
+            if(unique.contains(count.get(i)))
+            {
+                return false;
+            }
+            else{
+                unique.add(count.get(i));
+            }
+        }
+
+        return true;
+        
+    }
+}
+
+//2215. Find the Difference of Two Arrays
+class Solution {
+    public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+
+        List<List<Integer>> ans = new ArrayList<>();
+
+        HashSet<Integer> setNums2 = new HashSet<>();
+        for(Integer i : nums2)
+        {
+            if(!setNums2.contains(i))
+            {
+                setNums2.add(i);
+            }
+        }
+
+        //create hashmap for array 1
+        HashSet<Integer> setNums1 = new HashSet<>();
+        ArrayList<Integer> l1 = new ArrayList<>();
+        for(Integer i : nums1)
+        {
+            if(!setNums1.contains(i))
+            {
+                setNums1.add(i);
+            }
+        }
+
+       for(Integer i : setNums1)
+       {
+           if(!setNums2.contains(i))
+           {
+               l1.add(i);
+           }
+       }
+       ans.add(l1);
+
+        //create hashmap for array 2
+        l1 = new ArrayList<>();
+       for(Integer i : setNums2)
+       {
+           if(!setNums1.contains(i))
+           {
+               l1.add(i);
+           }
+       }
+       ans.add(l1);
+
+        return ans;
+        
+    }
+}
+
+//2390. Removing Stars From a String
+class Solution {
+    public String removeStars(String s) {
+
+        Stack<Character> st = new Stack<>();
+
+        for(Character x : s.toCharArray())
+        {
+            if(x == '*')
+            {
+                st.pop();
+            }
+            else{
+                st.push(x);
+            }
+        }
+
+        char[] ans = new char[st.size()];
+        for(int i = st.size()-1;i>=0;i--)
+        {   
+            ans[i] = st.pop();
+        }
+
+        return new String(ans);       
+    }
+}
+
+//
